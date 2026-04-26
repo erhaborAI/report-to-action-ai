@@ -1,44 +1,93 @@
 # Report-to-Action AI
+### Clinical Workflow Intelligence for Prioritization and Escalation in Medical Reporting
 
-## Clinical Workflow Intelligence for Prioritization and Escalation in Medical Reporting
+---
 
-Report-to-Action AI is a research prototype that demonstrates how a clinical workflow intelligence layer can convert unstructured medical reports into workflow-relevant actions.
+## Overview
 
-The system does not diagnose patients. Instead, it evaluates whether a report contains signals that should affect workflow behavior, including urgency, escalation need, uncertainty, missing context, and safety-gateway triggers.
+Report-to-Action AI is a clinical workflow intelligence prototype that transforms unstructured medical reports into actionable workflow decisions.
 
-## Why this matters
+Rather than focusing on diagnosis, the system addresses a critical gap in clinical AI:
 
-Many clinical AI systems focus on prediction. Real clinical environments require more than prediction. They require systems that can help determine which information needs attention, which cases should be escalated, and when uncertainty should prevent premature reassurance.
+> Moving from **report interpretation → workflow action → safe escalation**
 
-This project demonstrates a workflow layer that sits between report text and clinical action.
+This project demonstrates how structured reasoning layers can support prioritization, uncertainty handling, and safe escalation in real-world clinical workflows.
 
-## Core functions
+**Design focus:** Safe, interpretable, and workflow-aligned clinical AI behavior under uncertainty.
 
-- Parse report text
-- Detect critical findings and uncertainty language
-- Classify urgency
-- Identify report quality issues
-- Trigger a safety gateway when risk or uncertainty is high
-- Recommend escalation workflow
-- Generate an audit trail
+---
 
-## Project structure
+## Core Concept
+
+Clinical AI often stops at prediction.
+
+This system models what happens *after* interpretation:
+
+- Detect urgency signals  
+- Identify uncertainty and quality issues  
+- Apply a safety gateway  
+- Recommend a workflow action  
+
+---
+
+## System Architecture
+
+The pipeline follows a modular, decision-oriented structure:
+
+1. **Report Parsing**  
+   Extracts critical findings and uncertainty language  
+
+2. **Urgency Engine**  
+   Classifies reports into:  
+   - Critical  
+   - Urgent  
+   - Routine  
+
+3. **Quality Checker**  
+   Detects:  
+   - Missing clinical context  
+   - Ambiguity  
+   - Incomplete reporting  
+
+4. **Safety Gateway**  
+   Triggers escalation safeguards when:  
+   - High-risk findings are present  
+   - Uncertainty coexists with critical signals  
+   - Key information is missing  
+
+5. **Escalation Engine**  
+   Determines:  
+   - Escalation level  
+   - Recommended action  
+   - Communication channel  
+
+6. **Explanation Layer**  
+   Provides structured reasoning for decisions  
+
+---
+
+## Project Structure
+
 
 ```text
-report_to_action_ai/
-├── app.py
+report-to-action-ai/
+│
+├── app.py                  # Streamlit interface
 ├── requirements.txt
 ├── README.md
+│
 ├── src/
-│   ├── report_parser.py
-│   ├── urgency_engine.py
-│   ├── quality_checker.py
-│   ├── safety_gateway.py
-│   ├── escalation.py
-│   ├── explanation.py
-│   └── sample_reports.py
-└── paper/
-    └── manuscript_outline.md
+│   ├── report_parser.py    # Extract signals from report text
+│   ├── urgency_engine.py   # Assign urgency level
+│   ├── quality_checker.py  # Detect missing info / issues
+│   ├── safety_gateway.py   # Trigger safety conditions
+│   ├── escalation.py       # Determine escalation actions
+│   ├── explanation.py      # Build reasoning output
+│   └── sample_reports.py   # Example reports
+│
+├── paper/                  # (Optional) manuscript / writeup
+└── assets/                 # Images / diagrams
+
 ```
 
 ## Installation
@@ -47,35 +96,93 @@ report_to_action_ai/
 pip install -r requirements.txt
 ```
 
-## Run the app
+## Run 
 
 ```bash
 streamlit run app.py
 ```
 
-## Example output
+## Key Features
 
-Input:
+- Safety-aware workflow prioritization  
+- Explicit uncertainty detection  
+- Rule-based escalation logic  
+- Transparent decision explanations  
+- Audit trail for traceability  
+
+---
+
+## Example Output
+
+**Input**
 
 > CT abdomen and pelvis demonstrates free intraperitoneal air under the diaphragm with inflammatory changes near the sigmoid colon. Findings are concerning for bowel perforation. Recommend urgent surgical evaluation.
 
-Output:
 
-- Urgency: Critical
-- Safety gateway: Triggered
-- Escalation: Immediate
-- Final action: Immediate escalation to responsible clinician or emergency workflow
+**System Output**
 
-## Research positioning
+- **Urgency:** Critical  
+- **Safety Gateway:** Triggered  
+- **Escalation:** Immediate  
+- **Action:** Direct clinician notification / emergency escalation  
 
-Working paper title:
+---
 
-**From Report to Action: A Clinical Workflow Intelligence Layer for Prioritization and Escalation in Medical Reporting**
+## Why This Matters
 
-Core claim:
+Clinical workflows fail not only from missed diagnoses, but from:
 
-Clinical AI should not stop at prediction or text summarization. In real clinical environments, AI systems must help govern workflow behavior under uncertainty by prioritizing reports, escalating high-risk findings, identifying ambiguity, and producing an auditable rationale for action.
+- Delayed prioritization  
+- Poor escalation  
+- Uncertainty mismanagement  
+- Incomplete communication  
+
+This project reframes AI from:
+
+> “What is the diagnosis?”  
+to  
+> “What should happen next, safely and reliably?”
+
+---
+
+## Potential Applications
+
+- Radiology workflow prioritization  
+- Critical results escalation systems  
+- Clinical decision support layers  
+- EHR-integrated workflow intelligence  
+- Safety monitoring in AI-assisted care  
+
+---
+
+## Limitations
+
+- Rule-based prototype (not ML-driven)  
+- No real-world clinical validation yet  
+- Simplified language parsing  
+- Not integrated into live hospital systems  
+
+---
+
+## Future Directions
+
+- Incorporation of NLP/LLM-based parsing  
+- Integration with clinical data streams (EHR)  
+- Probabilistic risk scoring  
+- Human-in-the-loop escalation validation  
+- Real-world pilot testing  
+
+---
 
 ## Disclaimer
 
-This is a research and education prototype only. It is not intended for clinical use, diagnosis, treatment, or patient management.
+This is a research prototype for demonstration purposes only.  
+It is not intended for clinical use, diagnosis, or patient management.
+
+---
+
+## Author
+
+**Daniel Erhabor, MD, MPH**  
+Physician and Clinical AI Systems Builder  
+Focused on workflow, safety, and real-world deployment of clinical AI
