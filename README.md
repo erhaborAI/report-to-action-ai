@@ -5,7 +5,7 @@
 [Launch the Report-to-Action AI app](https://report-to-action-ai-xxtxaqkiou8nzqzvkaoru4.streamlit.app/)
 
 ## Concept Brief
-[From Report to Action AI: Clinical Workflow Intelligence for Prioritization and Escalation in Medical Reporting](paper/From_Report_to_Action_AI_Clinical_Workflow_Intelligence.pdf)
+[From Report to Action AI: Clinical Workflow Intelligence for Prioritization and Escalation in Medical Reporting](From_Report_to_Action_AI_Clinical_Workflow_Intelligence.pdf)
 ---
 
 ## Overview
