@@ -6,6 +6,7 @@
 
 ## Concept Brief
 📄 [Read the Concept Brief (PDF)](From_Report_to_Action_AI_Clinical_Workflow_Intelligence.pdf)
+
 ---
 
 ## Overview
